@@ -17,14 +17,24 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install Vercel CLI
-        run: npm i -g vercel
-
-      - name: Vercel Deploy
+      - name: Check Vercel secrets
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
-          # Deploy to Vercel (production) — requires Vercel token and project/org IDs in repo secrets
-          vercel --prod --confirm --token "$VERCEL_TOKEN"
+          if [ -z "${VERCEL_TOKEN:-}" ]; then
+            echo "ERROR: VERCEL_TOKEN secret is not set. Add 'VERCEL_TOKEN' to repository secrets: https://docs.github.com/en/actions/security-guides/encrypted-secrets"
+            exit 1
+          fi
+          if [ -z "${VERCEL_PROJECT_ID:-}" ] || [ -z "${VERCEL_ORG_ID:-}" ]; then
+            echo "NOTE: VERCEL_PROJECT_ID or VERCEL_ORG_ID not set — the action will try to infer the project from the repo. Recommended to set both."
+          fi
+
+      - name: Vercel Deploy (Action)
+        uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          prod: true
