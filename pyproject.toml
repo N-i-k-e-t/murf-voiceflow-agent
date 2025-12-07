@@ -1,0 +1,87 @@
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voiceflow-murf"
+version = "1.0.0"
+description = "VoiceFlow - Murf Falcon Voice Agent for Real-time Voice Conversations"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    {name = "VoiceFlow Team", email = "contact@voiceflow.ai"}
+]
+license = {text = "MIT"}
+keywords = ["voice", "ai", "murf", "tts", "asr", "openai", "deepgram"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "murf>=1.0.0",
+    "pyaudio>=0.2.11",
+    "requests>=2.28.0",
+    "python-dotenv>=0.21.0",
+    "openai>=1.0.0",
+    "colorama>=0.4.6",
+    "urllib3>=1.26.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/murf-voiceflow-agent"
+Repository = "https://github.com/yourusername/murf-voiceflow-agent.git"
+Documentation = "https://github.com/yourusername/murf-voiceflow-agent/blob/main/README.md"
+
+[project.scripts]
+voiceflow = "app.cli_runner:main"
+
+[tool.black]
+line-length = 100
+target-version = ['py38']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --cov=app --cov-report=term-missing"

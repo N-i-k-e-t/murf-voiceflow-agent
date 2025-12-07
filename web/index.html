@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VoiceFlow – Murf Falcon Voice Agent</title>
+  <link rel="stylesheet" href="/web/styles.css">
+  <meta name="description" content="VoiceFlow – Murf Falcon Voice Agent — built by Niket Patil. Real-time voice assistant powered by Deepgram, OpenAI, and Murf." />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="brand">VoiceFlow</h1>
+      <p class="subtitle">Murf Falcon Voice Agent — Built by Niket Patil • Affiliated with ANDS NETWORK</p>
+      <nav class="nav">
+        <button class="tab active" data-tab="home">Home</button>
+        <button class="tab" data-tab="features">Features</button>
+        <button class="tab" data-tab="demo">Demo</button>
+        <button class="tab" data-tab="pricing">Pricing</button>
+        <button class="tab" data-tab="about">About</button>
+        <button class="tab" data-tab="contact">Contact</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="tabcontent active">
+      <h2>Welcome to VoiceFlow</h2>
+      <p>Talk to your terminal. Press Enter, speak, and hear Murf Falcon respond. Built by <strong>Niket Patil</strong>.</p>
+      <div class="hero">
+        <img src="/web/assets/voiceflow-hero.png" alt="VoiceFlow hero" class="hero-img"/>
+      </div>
+    </section>
+
+    <section id="features" class="tabcontent">
+      <h2>Features</h2>
+      <ul>
+        <li>Deepgram ASR for accurate speech-to-text</li>
+        <li>OpenAI LLM for concise, helpful replies</li>
+        <li>Murf Falcon streaming TTS for natural voice</li>
+        <li>Responsive landing site with enquiry form</li>
+        <li>Deployable to Vercel with serverless API</li>
+      </ul>
+    </section>
+
+    <section id="demo" class="tabcontent">
+      <h2>Demo</h2>
+      <p>View the demo video in the `demo/` folder. Replace with your uploaded demo file for public site.</p>
+    </section>
+
+    <section id="pricing" class="tabcontent">
+      <h2>Pricing</h2>
+      <p>Beta version: free consulting. Paid consulting – coming soon. Contact us to schedule a demo or consulting call.</p>
+    </section>
+
+    <section id="about" class="tabcontent">
+      <h2>About</h2>
+      <p>Created by <strong>Niket Patil</strong>. Affiliated with <strong>ANDS NETWORK</strong>. This project was developed for Techfest IIT Bombay.</p>
+    </section>
+
+    <section id="contact" class="tabcontent">
+      <h2>Contact & Enquiry</h2>
+      <p>Use the form below to send an enquiry. Submissions will be emailed to <code>nikepatil1624@gmail.com</code> and a WhatsApp notification will be sent to <code>+91 9022790410</code>.</p>
+
+      <form id="enquiry-form" class="form">
+        <label for="name">Your Name</label>
+        <input id="name" name="name" type="text" required />
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required />
+
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit" id="submit-btn">Submit Enquiry</button>
+        <div id="form-status" role="status" aria-live="polite"></div>
+      </form>
+
+      <p class="small">Or email directly: <a href="mailto:nikepatil1624@gmail.com">nikepatil1624@gmail.com</a> • WhatsApp: <a href="https://wa.me/919022790410">+91 9022790410</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 VoiceFlow — Built by Niket Patil — Affiliated with ANDS NETWORK</p>
+    </div>
+  </footer>
+
+<script src="/web/script.js"></script>
+</body>
+</html>
